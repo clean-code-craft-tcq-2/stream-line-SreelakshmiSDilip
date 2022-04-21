@@ -7,6 +7,7 @@ bool tclReceiver::bReadConsoleOutputFromFileIntoVector(vector<stBatteryValues> &
    indata.open("./consoleOutput.txt");
    if (!indata)
    {
+      cout <<"File read failed";
       bReturnVal = false;
    }
    else
