@@ -21,6 +21,7 @@ struct stBatteryValues
 
 static void vDisplayBatteryValues(const vector<stBatteryValues> &m_BatteryValues)
 {
+   cout <<"\n ******Received Values******;
    for (int index = 0; index < m_BatteryValues.size(); ++index)
    {
       cout << m_BatteryValues[index].temperature << "\t" << m_BatteryValues[index].chargeRate << "\n";
