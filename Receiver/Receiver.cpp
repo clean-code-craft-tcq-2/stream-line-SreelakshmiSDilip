@@ -28,7 +28,7 @@ bool tclReceiver::bReadConsoleOutputFromFileIntoVector(vector<stBatteryValues> &
                   // first word is a temperature
                   oBatteryValues.temperature = number;
                }
-               else if (digitcount == 2)
+               else
                {
                   oBatteryValues.chargeRate = number;
                }
@@ -38,7 +38,6 @@ bool tclReceiver::bReadConsoleOutputFromFileIntoVector(vector<stBatteryValues> &
          m_BatteryValues.push_back(oBatteryValues);
       }
       indata.close();
-
       bReturnVal = true;
    }
    return bReturnVal;
