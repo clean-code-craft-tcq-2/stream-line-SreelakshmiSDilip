@@ -1,4 +1,12 @@
-#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
-
 #include "../Test/catch.hpp"
 #include "Receiver.h"
+
+TEST_CASE("Test To check the retrieve of console ouput values") 
+{
+   tclReceiver oReceiver;
+   vector<stBatteryValues> oBatteryValues;
+   bool bSuccess = oReceiver.bReadConsoleOutputFromFileIntoVector(oBatteryValues);
+   vDisplayBatteryValues(oBatteryValues);
+   assert(bSuccess == true);
+}
+
