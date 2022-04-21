@@ -1,0 +1,11 @@
+Temperature value == 24.000000	 ChargeRate value == 10.000000
+Temperature value == 45.000000	 ChargeRate value == 20.000000
+Temperature value == 50.000000	 ChargeRate value == 40.000000
+Temperature value == 40.000000	 ChargeRate value == 30.000000
+Temperature value == 10.000000	 ChargeRate value == 50.000000
+Temperature value == 15.000000	 ChargeRate value == 50.000000
+Temperature value == 15.000000	 ChargeRate value == 15.000000
+Temperature value == 30.000000	 ChargeRate value == 18.000000
+Temperature value == 24.000000	 ChargeRate value == 20.000000
+Temperature value == 56.000000	 ChargeRate value == 30.000000
+Temperature value == 60.000000	 ChargeRate value == 50.000000
