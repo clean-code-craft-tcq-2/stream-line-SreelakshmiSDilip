@@ -5,12 +5,8 @@ bool tclReceiver::bReadConsoleOutputFromFileIntoVector(vector<stBatteryValues> &
    bool bReturnVal = false;
    ifstream indata;
    indata.open("./Receiver/consoleOutput.txt");
-   if (!indata)
-   {
-      cout <<" \n File read failed";
-      bReturnVal = false;
-   }
-   else
+   
+   if (indata)
    {
       std::string line;
       while (std::getline(indata, line))
@@ -41,6 +37,7 @@ bool tclReceiver::bReadConsoleOutputFromFileIntoVector(vector<stBatteryValues> &
       indata.close();
       bReturnVal = true;
    }
+   
    return bReturnVal;
 }
 
