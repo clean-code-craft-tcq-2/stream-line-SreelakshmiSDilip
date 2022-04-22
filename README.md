@@ -67,7 +67,7 @@ This section lists the minimum functionality of the Sender and Receiver.
 
 ### The Receiver
 
-- reads the parameters from the console input
+- reads the parameters from the .txt file (instead of console output)
 - after reading every parameter, it prints the following:
     - maximum and minimum values in the incoming stream
     - [simple moving average](https://www.investopedia.com/terms/s/sma.asp) of the last 5 values
