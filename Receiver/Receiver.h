@@ -2,6 +2,7 @@
    This file holds the declaration of Receiver class.
    The input to this receiver is in the below form of floats (from Sender Console Output)
    Temperature value == 24.000000   ChargeRate value == 60.000000
+   Currently the output of console is assumed to be stored in a file named consoleOutput.txt
 */
 
 #pragma once
