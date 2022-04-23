@@ -46,6 +46,10 @@ class tclReceiver    //tcl -> type class
    float fDetermineMaxTemperatureValuesFromSenderStream();
    float fDetermineMaxChargeRateValuesFromSenderStream();
    
+   // helper methods to determine minimum values.
+   float fDetermineMovingAvgOfTemperatureValuesFromSenderStream(const int iNumberOfElements);
+   float fDetermineMovingAvgOfChargerRateValuesFromSenderStream(const int iNUmberofElements);
+   
 public:
 
    vector<stBatteryValues> vGetBatteryValues();
@@ -58,7 +62,7 @@ public:
    bool bReadConsoleOutputFromFileIntoVector();
    float fGetMinOfBatteryParamterFromSenderStream(teBatteryParameter oBatteryValue);
    float fGetMaxOfBatteryParamterFromSenderStream(teBatteryParameter oBatteryValue);
-   float fDetermineMovingAverageOfBatteryParamFromSenderStream(teBatteryParameter oBatteryValue);
+   float fGetMovingAverageOfBatteryParamFromSenderStream(teBatteryParameter oBatteryValue, const int iNumberOfElements);
 
 private:
    vector<stBatteryValues> m_BatteryValues;
