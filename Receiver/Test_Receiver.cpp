@@ -35,3 +35,29 @@ TEST_CASE("Test To check the correctness of min value calculation of Battery cha
    float fCalculatedMinChargeRateValue = oReceiver.fGetMinOfBatteryParamterFromSenderStream(teBatteryParameter::EN_CHARGERATE);
    assert(fExpectedMinChargeRateValue == fCalculatedMinChargeRateValue);
 }
+
+TEST_CASE("Test To check the correctness of max value calculation of Battery temperature") 
+{
+   tclReceiver oReceiver;
+   bool bSuccess = oReceiver.bReadConsoleOutputFromFileIntoVector();
+   assert(bSuccess == true);
+   assert(!oReceiver.vGetBatteryValues().empty() == true);
+   
+   // test maximum value of temperature.
+   float fExpectedMaxTempValue = 60;
+   float fCalculatedMaxTempValue = oReceiver.fGetMaxOfBatteryParamterFromSenderStream(teBatteryParameter::EN_TEMPERATURE);
+   assert(fExpectedMaxTempValue == fCalculatedMaxTempValue);
+}
+
+TEST_CASE("Test To check the correctness of max value calculation of Battery charge rate") 
+{
+   tclReceiver oReceiver;
+   bool bSuccess = oReceiver.bReadConsoleOutputFromFileIntoVector();
+   assert(bSuccess == true);
+   assert(!oReceiver.vGetBatteryValues().empty() == true);
+   
+   // test maximum value of charge rate.
+   float fExpectedMaxChargeRateValue = 50;
+   float fCalculatedMaxChargeRateValue = oReceiver.fGetMaxOfBatteryParamterFromSenderStream(teBatteryParameter::EN_CHARGERATE);
+   assert(fExpectedMaxChargeRateValue == fCalculatedMaxChargeRateValue);
+}
