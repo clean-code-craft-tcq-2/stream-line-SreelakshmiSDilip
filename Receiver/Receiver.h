@@ -38,8 +38,13 @@ static void vDisplayBatteryValues(const vector<stBatteryValues> &m_BatteryValues
 
 class tclReceiver    //tcl -> type class
 {
+   // helper methods to determine minimum values.
    float fDetermineMinTemperatureValuesFromSenderStream();
    float fDetermineMinChargeRateValuesFromSenderStream();
+   
+   // helper methods to determine maximum values.
+   float fDetermineMaxTemperatureValuesFromSenderStream();
+   float fDetermineMaxChargeRateValuesFromSenderStream();
    
 public:
 
