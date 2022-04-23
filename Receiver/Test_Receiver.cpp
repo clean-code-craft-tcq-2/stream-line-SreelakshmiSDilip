@@ -23,3 +23,15 @@ TEST_CASE("Test To check the correctness of min value calculation of Battery tem
    assert(fExpectedMinTempValue == fCalculatedMinTempValue);
 }
 
+TEST_CASE("Test To check the correctness of min value calculation of Battery charge rate") 
+{
+   tclReceiver oReceiver;
+   bool bSuccess = oReceiver.bReadConsoleOutputFromFileIntoVector();
+   assert(bSuccess == true);
+   assert(!oReceiver.vGetBatteryValues().empty() == true);
+   
+   // test minimum value.
+   float fExpectedMinChargeRateValue = 10;
+   float fCalculatedMinChargeRateValue = oReceiver.fGetMinOfBatteryParamterFromSenderStream(teBatteryParameter::EN_CHARGERATE);
+   assert(fExpectedMinChargeRateValue == fCalculatedMinChargeRateValue);
+}
