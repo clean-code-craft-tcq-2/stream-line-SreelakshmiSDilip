@@ -1,6 +1,11 @@
 #include "Receiver.h"
 #include <limits>
 
+vector<stBatteryValues> tclReceiver::vGetBatteryValues()
+{
+   return m_BatteryValues;
+}
+
 bool tclReceiver::bReadConsoleOutputFromFileIntoVector()
 {
    bool bReturnVal = false;
@@ -120,7 +125,44 @@ float tclReceiver::fGetMaxOfBatteryParamterFromSenderStream(teBatteryParameter o
    }
 }
 
-vector<stBatteryValues> tclReceiver::vGetBatteryValues()
+float tclReceiver::fDetermineMovingAvgOfTemperatureValuesFromSenderStream(const int iNumberOfElements)
 {
-   return m_BatteryValues;
+   float fMovingAverage = 0;
+   if (iNumberOfElements <= (int)m_BatteryValues.size())
+   {
+      float sum = 0;
+      for (int Index = ((int)m_BatteryValues.size() - 1); Index > iNumberOfElements; --Index)
+      {
+         sum += m_BatteryValues.at(Index).temperature;
+      }
+      fMovingAverage = (sum / iNumberOfElements);
+   }
+   return fMovingAverage;
+}
+
+float tclReceiver::fDetermineMovingAvgOfChargerRateValuesFromSenderStream(const int iNumberOfElements)
+{
+   float fMovingAverage = 0;
+   if (iNumberOfElements <= (int)m_BatteryValues.size())
+   {
+      float sum = 0;
+      for (int Index = ((int)m_BatteryValues.size() - 1); Index > iNumberOfElements; --Index)
+      {
+         sum += m_BatteryValues.at(Index).chargeRate;
+      }
+      fMovingAverage = (sum / iNumberOfElements);
+   }
+   return fMovingAverage;
+}
+
+float tclReceiver::fGetMovingAverageOfBatteryParamFromSenderStream(teBatteryParameter oBatteryValue, const int iNumberOfElements)
+{
+   if (oBatteryValue == EN_TEMPERATURE)
+   {
+      return fDetermineMovingAvgOfTemperatureValuesFromSenderStream(iNumberOfElements);
+   }
+   else
+   {
+      return fDetermineMovingAvgOfChargerRateValuesFromSenderStream(iNumberOfElements);
+   }
 }
