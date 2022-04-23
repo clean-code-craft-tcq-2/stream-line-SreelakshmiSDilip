@@ -62,7 +62,7 @@ TEST_CASE("Test To check the correctness of max value calculation of Battery cha
    assert(fExpectedMaxChargeRateValue == fCalculatedMaxChargeRateValue);
 }
 
-TEST_CASE("Test moving average calculation of Battery temperature value") 
+TEST_CASE("Test moving average calculation of Battery temperature values") 
 {
    tclReceiver oReceiver;
    bool bSuccess = oReceiver.bReadConsoleOutputFromFileIntoVector();
@@ -74,4 +74,19 @@ TEST_CASE("Test moving average calculation of Battery temperature value")
    int iNumberOfElements = 5;    //last 5 elements
    float fCalculatedMovingAvgOfTempValues = oReceiver.fGetMovingAverageOfBatteryParamFromSenderStream(teBatteryParameter::EN_TEMPERATURE, iNumberOfElements);
    assert(fExpectedMovingAvgOfTempValues == fCalculatedMovingAvgOfTempValues);
+}
+
+
+TEST_CASE("Test moving average calculation of Battery charge rate values") 
+{
+   tclReceiver oReceiver;
+   bool bSuccess = oReceiver.bReadConsoleOutputFromFileIntoVector();
+   assert(bSuccess == true);
+   assert(!oReceiver.vGetBatteryValues().empty() == true);
+   
+   // test moving average of last 5 elements of battery charge rate values.
+   float fExpectedMovingAvgOfBatteryChargeRateValues = 26.6f;
+   int iNumberOfElements = 5;    //last 5 elements
+   float fCalculatedMovingAvgOfBatteryChargeRateValues = oReceiver.fGetMovingAverageOfBatteryParamFromSenderStream(teBatteryParameter::EN_CHARGERATE, iNumberOfElements);
+   assert(fExpectedMovingAvgOfBatteryChargeRateValues == fCalculatedMovingAvgOfBatteryChargeRateValues);
 }
