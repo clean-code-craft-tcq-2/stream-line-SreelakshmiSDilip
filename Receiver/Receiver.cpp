@@ -140,7 +140,7 @@ float tclReceiver::fDetermineMovingAvgOfTemperatureValuesFromSenderStream(const 
    return fMovingAverage;
 }
 
-float tclReceiver::fDetermineMovingAvgOfChargerRateValuesFromSenderStream(const int iNumberOfElements)
+/*float tclReceiver::fDetermineMovingAvgOfChargerRateValuesFromSenderStream(const int iNumberOfElements)
 {
    float fMovingAverage = 0;
    if (iNumberOfElements <= (int)m_BatteryValues.size())
@@ -153,7 +153,7 @@ float tclReceiver::fDetermineMovingAvgOfChargerRateValuesFromSenderStream(const 
       fMovingAverage = (sum / iNumberOfElements);
    }
    return fMovingAverage;
-}
+}*/
 
 float tclReceiver::fGetMovingAverageOfBatteryParamFromSenderStream(teBatteryParameter oBatteryValue, const int iNumberOfElements)
 {
