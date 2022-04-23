@@ -38,6 +38,9 @@ static void vDisplayBatteryValues(const vector<stBatteryValues> &m_BatteryValues
 
 class tclReceiver    //tcl -> type class
 {
+   float fDetermineMinTemperatureValuesFromSenderStream();
+   float fDetermineMinChargeRateValuesFromSenderStream();
+   
 public:
 
    vector<stBatteryValues> vGetBatteryValues();
