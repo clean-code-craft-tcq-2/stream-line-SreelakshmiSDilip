@@ -80,6 +80,34 @@ float tclReceiver::fGetMinOfBatteryParamterFromSenderStream(teBatteryParameter o
    }
 }
 
+float tclReceiver::fDetermineMaxTemperatureValuesFromSenderStream()
+{
+   float fMaxTemperature = std::numeric_limits<float>::min();
+   for (int Index = 0; Index < (int)m_BatteryValues.size(); ++Index)
+   {
+      if (m_BatteryValues.at(Index).temperature > fMaxTemperature)
+      {
+         fMaxTemperature = m_BatteryValues.at(Index).temperature;
+      }
+   }
+
+   return fMaxTemperature;
+}
+
+float tclReceiver::fDetermineMaxChargeRateValuesFromSenderStream()
+{
+   float fMaxChargeRate = std::numeric_limits<float>::min();
+   for (int Index = 0; Index < (int)m_BatteryValues.size(); ++Index)
+   {
+      if (m_BatteryValues.at(Index).chargeRate > fMaxChargeRate)
+      {
+         fMaxChargeRate = m_BatteryValues.at(Index).chargeRate;
+      }
+   }
+
+   return fMaxChargeRate;
+}
+
 vector<stBatteryValues> tclReceiver::vGetBatteryValues()
 {
    return m_BatteryValues;
