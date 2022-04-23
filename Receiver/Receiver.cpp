@@ -1,6 +1,6 @@
 #include "Receiver.h"
 
-bool tclReceiver::bReadConsoleOutputFromFileIntoVector(vector<stBatteryValues> &m_BatteryValues)
+bool tclReceiver::bReadConsoleOutputFromFileIntoVector()
 {
    bool bReturnVal = false;
    ifstream indata;
@@ -38,4 +38,9 @@ bool tclReceiver::bReadConsoleOutputFromFileIntoVector(vector<stBatteryValues> &
       bReturnVal = true;
    }
    return bReturnVal;
+}
+
+vector<stBatteryValues> tclReceiver::vGetBatteryValues()
+{
+   return m_BatteryValues;
 }
