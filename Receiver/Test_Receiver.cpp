@@ -61,3 +61,17 @@ TEST_CASE("Test To check the correctness of max value calculation of Battery cha
    float fCalculatedMaxChargeRateValue = oReceiver.fGetMaxOfBatteryParamterFromSenderStream(teBatteryParameter::EN_CHARGERATE);
    assert(fExpectedMaxChargeRateValue == fCalculatedMaxChargeRateValue);
 }
+
+TEST_CASE("Test moving average calculation of Battery temperature value") 
+{
+   tclReceiver oReceiver;
+   bool bSuccess = oReceiver.bReadConsoleOutputFromFileIntoVector();
+   assert(bSuccess == true);
+   assert(!oReceiver.vGetBatteryValues().empty() == true);
+   
+   // test moving average of last 5 elements of temperature values.
+   float fExpectedMovingAvgOfTempValues = 37.0f;
+   int iNumberOfElements = 5;    //last 5 elements
+   float fCalculatedMovingAvgOfTempValues = oReceiver.fGetMovingAverageOfBatteryParamFromSenderStream(teBatteryParameter::EN_TEMPERATURE, iNumberOfElements);
+   assert(fExpectedMovingAvgOfTempValues == fCalculatedMovingAvgOfTempValues);
+}
