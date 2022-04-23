@@ -1,4 +1,5 @@
 #include "Receiver.h"
+#include <limits>
 
 bool tclReceiver::bReadConsoleOutputFromFileIntoVector()
 {
@@ -38,6 +39,33 @@ bool tclReceiver::bReadConsoleOutputFromFileIntoVector()
       bReturnVal = true;
    }
    return bReturnVal;
+}
+
+float tclReceiver::fDetermineMinTemperatureValuesFromSenderStream()
+{
+   float fminTemperature = std::numeric_limits<float>::max();
+   for (int Index = 0; Index < (int)m_BatteryValues.size(); ++Index)
+   {
+      if (m_BatteryValues.at(Index).temperature < fminTemperature)
+      {
+         fminTemperature = m_BatteryValues.at(Index).temperature;
+      }
+   }
+
+   return fminTemperature;
+}
+
+float tclReceiver::fDetermineMinChargeRateValuesFromSenderStream()
+{
+   float fminChargeRate = std::numeric_limits<float>::max();
+   for (int Index = 0; Index < (int)m_BatteryValues.size(); ++Index)
+   {
+      if (m_BatteryValues.at(Index).temperature < fminChargeRate)
+      {
+         fminChargeRate = m_BatteryValues.at(Index).temperature;
+      }
+   }
+   return fminChargeRate;
 }
 
 vector<stBatteryValues> tclReceiver::vGetBatteryValues()
