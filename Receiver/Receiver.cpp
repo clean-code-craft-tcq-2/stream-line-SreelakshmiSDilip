@@ -108,6 +108,18 @@ float tclReceiver::fDetermineMaxChargeRateValuesFromSenderStream()
    return fMaxChargeRate;
 }
 
+float tclReceiver::fGetMaxOfBatteryParamterFromSenderStream(teBatteryParameter oBatteryValue)
+{
+   if (oBatteryValue == EN_TEMPERATURE)
+   {
+      return fDetermineMaxTemperatureValuesFromSenderStream();
+   }
+   else
+   {
+      return fDetermineMaxChargeRateValuesFromSenderStream();
+   }
+}
+
 vector<stBatteryValues> tclReceiver::vGetBatteryValues()
 {
    return m_BatteryValues;
