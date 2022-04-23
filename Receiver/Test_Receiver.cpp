@@ -4,10 +4,8 @@
 TEST_CASE("Test To check the retrieve of console ouput values") 
 {
    tclReceiver oReceiver;
-   vector<stBatteryValues> oBatteryValues;
    bool bSuccess = oReceiver.bReadConsoleOutputFromFileIntoVector(oBatteryValues);
    assert(bSuccess == true);
-   assert(!oBatteryValues.empty() == true);
-   vDisplayBatteryValues(oBatteryValues);
+   assert(!oReceiver.vGetBatteryValues().empty() == true);
+   vDisplayBatteryValues(oReceiver.vGetBatteryValues());
 }
-
