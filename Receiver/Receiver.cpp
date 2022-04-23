@@ -68,6 +68,18 @@ float tclReceiver::fDetermineMinChargeRateValuesFromSenderStream()
    return fminChargeRate;
 }
 
+float tclReceiver::fGetMinOfBatteryParamterFromSenderStream(teBatteryParameter oBatteryValue)
+{
+   if (oBatteryValue == EN_TEMPERATURE)
+   {
+      return fDetermineMinTemperatureValuesFromSenderStream();
+   }
+   else
+   {
+      return fDetermineMinChargeRateValuesFromSenderStream();
+   }
+}
+
 vector<stBatteryValues> tclReceiver::vGetBatteryValues()
 {
    return m_BatteryValues;
