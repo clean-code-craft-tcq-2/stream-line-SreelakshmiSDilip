@@ -60,9 +60,9 @@ float tclReceiver::fDetermineMinChargeRateValuesFromSenderStream()
    float fminChargeRate = std::numeric_limits<float>::max();
    for (int Index = 0; Index < (int)m_BatteryValues.size(); ++Index)
    {
-      if (m_BatteryValues.at(Index).temperature < fminChargeRate)
+      if (m_BatteryValues.at(Index).chargeRate < fminChargeRate)
       {
-         fminChargeRate = m_BatteryValues.at(Index).temperature;
+         fminChargeRate = m_BatteryValues.at(Index).chargeRate;
       }
    }
    return fminChargeRate;
